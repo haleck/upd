@@ -1,3 +1,19 @@
+.container {
+  height: 100%;
+  display: flex;
+  gap: 3rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
+.header {
+  font-size: 4rem;
+  font-weight: 500;
+}
+
+.redirect {
+  font-size: 2.4rem;
+}
 
 /*# sourceMappingURL=error.module.css.map */

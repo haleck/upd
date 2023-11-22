@@ -3,3 +3,10 @@ $grey_light: #C5C5C5
 $grey_light_opacity10: rgba(197,197,197,0.1)
 $green: #1BDCAE
 $green_smooth: #26B592
+
+$max_width: 1728
+$max_height: 1117
+// Вычисляет размер шрифта в зависимости от ширины и высоты экран
+@mixin adaptiv-font($max_size, $min_size)
+  $addSize: $max_size - $min_size
+  font-size: calc(#{$min_size + px} + #{$addSize} * (100vh) / 2 / #{$max_height/2})
