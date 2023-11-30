@@ -18,7 +18,7 @@ const Upload = () => {
             const formData = new FormData();
             formData.append('image', file, 'image');
 
-            const response = await fetch('http://localhost:5001/uploadImage', {
+            const response = await fetch('http://5.35.82.186/:5001/uploadImage', {
                 method: 'POST',
                 body: formData,
             });
