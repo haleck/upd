@@ -7,6 +7,7 @@ import loadingImg from "../assets/loading.png"
 const Main = () => {
     const location = useLocation()
     const file = location.state.file
+    const prediction = location.state.prediction
     const imageUrl = URL.createObjectURL(file)
 
     const navigate = useNavigate()
@@ -18,10 +19,10 @@ const Main = () => {
     let getResult = () => {
         setLoading(true)
         setTimeout(()=>{
-            setResult('Серый')
+            setResult(prediction)
             setLoading(false)
             return 1
-        }, 2000)
+        }, 500)
     }
 
     let sendCorrection = () => {
@@ -30,7 +31,7 @@ const Main = () => {
             setLoading(false)
             navigate('/success')
             return 1
-        }, 1000)
+        }, 500)
     }
 
     return (
@@ -98,7 +99,7 @@ const Main = () => {
                         <option value={'pink'}>Розовый</option>
                         <option value={'purple'}>Фиолетовый</option>
                         <option value={'beige'}>Бежевый</option>
-                        <option value={'tan'}>Рыжевато-коричневый</option>
+                        <option value={'tan'}>Цвет загара</option>
                     </select>
                     <Button
                         inlineStyles={{width: '62rem'}}

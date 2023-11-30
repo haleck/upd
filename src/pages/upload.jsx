@@ -3,10 +3,34 @@ import classes from "./upload.module.css"
 import image from '../assets/image.png'
 import Button from "../components/Button";
 import {useNavigate} from "react-router-dom";
+import axios from "axios";
 
 const Upload = () => {
     const [selectedFile, setSelectedFile] = useState(null);
     const navigate = useNavigate()
+
+    const uploadImage = async (file) => {
+        if (!(file instanceof Blob) || !file.type.startsWith('image/')) {
+            console.error('Неверный формат файла или файл не является изображением.');
+            return;
+        }
+
+        try {
+            const formData = new FormData();
+            formData.append('image', file, 'image');
+
+            const response = await fetch('http://localhost:5001/uploadImage', {
+                method: 'POST',
+                body: formData,
+            });
+
+            const result = await response.text();
+            console.log(result); // Результат загрузки изображения
+            return result
+        } catch (error) {
+            console.error('Ошибка при отправке файла:', error);
+        }
+    }
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];
@@ -24,8 +48,13 @@ const Upload = () => {
     };
 
     useEffect(()=>{
+        const f = async () => {
+            const result = await uploadImage(selectedFile)
+            navigate('../main', {state:{file:selectedFile, prediction: JSON.parse(result).prediction}})
+        }
+
         if (selectedFile)
-            navigate('../main', {state:{file:selectedFile}})
+            f()
     }, [selectedFile])
 
     return (
