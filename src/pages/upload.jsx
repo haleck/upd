@@ -3,7 +3,6 @@ import classes from "./upload.module.css"
 import image from '../assets/image.png'
 import Button from "../components/Button";
 import {useNavigate} from "react-router-dom";
-import axios from "axios";
 
 const Upload = () => {
     const [selectedFile, setSelectedFile] = useState(null);
