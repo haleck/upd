@@ -10,12 +10,12 @@ const Hello = () => {
         <div className={classes.wrapper}>
             <div className={classes.container}>
                 <h1 className={classes.h}>
-                    Добро пожаловать на <green>Colorcaridentifier.com</green>!
+                    Добро пожаловать на <green>Carcoloridentifier.com</green>!
                 </h1>
                 <p className={classes.p}>
                     Наша цель - научить нейронную сеть различать цвета автомобилей.<br />
-                    На данный момент точность нейронной сети составляет <green>90%</green>.<br />
-                    В обучении нейронной сети задействовано <green>10801 изображений</green>.<br />
+                    На данный момент точность нейронной сети составляет <green>78%</green>.<br />
+                    В обучении нейронной сети задействовано <green>8817 изображений</green>.<br />
                     <medium>Используя данный сервис вы помогаете нам в обучении модели.</medium><br />
                     <br />
                     <grey>Проект полностью опенсорс, с исходным кодом можно ознакомиться по ссылке:</grey><br />
